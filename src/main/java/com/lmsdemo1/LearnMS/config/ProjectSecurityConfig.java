@@ -13,8 +13,10 @@ public class ProjectSecurityConfig {
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
 
 //         Permit All Requests inside the Web Application
-        http.csrf().ignoringAntMatchers("/api/**")
-                .authorizeHttpRequests()
+        http.csrf().disable().authorizeHttpRequests()
+                .requestMatchers("/StudentDashboard/**").permitAll()
+                .requestMatchers("/TeacherDashboard/**").permitAll()
+                .requestMatchers("/style.css").permitAll()
                 .requestMatchers("/Registration").permitAll()
                 .requestMatchers("/Login").permitAll()
                 .requestMatchers("/StudentD").authenticated()
@@ -22,12 +24,12 @@ public class ProjectSecurityConfig {
                 .requestMatchers("/RegistrationT").permitAll()
                 .requestMatchers("/Registration").denyAll()
                 .requestMatchers("/saveMsg").permitAll()
-                .requestMatchers("css/**").permitAll()
+
                 .and().formLogin()
                 .and().httpBasic();
 
 //         Deny All Requests inside the Web Application
-//          http.authorizeHttpRequests().anyRequest().authenticated()
+//          http.authorizeHttpRequests().anyRequest().permitAll()
 //                             .and().formLogin()
 //                    .and().httpBasic();
 //
