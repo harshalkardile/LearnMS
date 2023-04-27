@@ -76,6 +76,7 @@ body{
 }
 form {
    padding-top: 30px;
+   padding-bottom: 0px
    font-size: 14px;
 }
 .form-group{
@@ -118,8 +119,8 @@ font-weight: 350;
                         <div class="form-group">
 <!--                            <li class="alert alert-danger" role="alert" th:if="${!#strings.isEmpty(errorMessage)}"-->
 <!--                                th:text="${errorMessage}" />-->
-                            <li style="font-size:11px;padding: 0px 0 0px;" class="alert alert-danger" role="alert"
-                                th:if="${!#strings.isEmpty(errorMessage)}" th:text="${errorMessage}"/>
+                            <li style="" class="alert alert-danger" role="alert"
+                                th:if="${!#strings.isEmpty(errorMessge)}" th:text="${errorMessge}"/>
                             <label for="exampleInputEmail1"> Enter StudentID </label>
                             <input type="text" name="username"  class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" required>
                         </div>
