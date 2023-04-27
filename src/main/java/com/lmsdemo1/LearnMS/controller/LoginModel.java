@@ -5,13 +5,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class LoginModel {
-    @RequestMapping(value={
-            "/Login"
-    })
-    public String LoginPage(){
-
-        return "LoginModule/Login.html";
-    }
+//    @RequestMapping(value={
+//            "/Login"
+//    })
+//    public String LoginPage(){
+//
+//        return "LoginModule/Login.html";
+//    }
 
 //    @RequestMapping(value={
 //            "/RegistrationT"
@@ -51,13 +51,13 @@ public class LoginModel {
         return "LoginModule/forgotpswd2.html";
     }
 
-    @RequestMapping(value={
-            "/StudentD"
-    })
-    public String StudentDashboard(){
-
-        return "Dashboards/LMS Student dashboard/index.html";
-    }
+//    @RequestMapping(value={
+//            "/StudentD"
+//    })
+//    public String StudentDashboard(){
+//
+//        return "Dashboards/LMS Student dashboard/index.html";
+//    }
 
     @RequestMapping(value={
             "/UpdateStudent"
