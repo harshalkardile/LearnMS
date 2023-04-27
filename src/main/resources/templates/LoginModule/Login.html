@@ -75,7 +75,7 @@ body{
    background: linear-gradient(135deg, #262931, #EEE9E9);
 }
 form {
-   padding-top: 30px;
+   padding-top: 10px;
    padding-bottom: 0px
    font-size: 14px;
 }
@@ -84,7 +84,9 @@ form {
    padding-bottom: 10px;
 }
 .card-title {
-font-weight: 350;
+    font-weight: 380;
+    padding-top: 10px;
+    padding-bottom:10px;
  }
 .btn {
    width: 100%;
@@ -93,7 +95,7 @@ font-weight: 350;
    margin-bottom: 10px;
 }
 .login-form {
-   width: 350px;
+   width: 380px;
    margin: 100px;
    border-radius: 10px;
 
@@ -103,10 +105,11 @@ font-weight: 350;
    padding: 10px 0 0;
 }
 .alert {
-   margin-bottom: -30px;
+   margin-bottom: 8px;
    font-size: 13px;
-   margin-top: 100px;
+   margin-top:10px;
 }
+
 </style>
 <body>
 <div class="abc">
@@ -114,13 +117,14 @@ font-weight: 350;
         <div class="card login-form">
             <div class="card-body">
                 <h3 class="card-title text-center"> Student Login</h3>
+                <li style="" class="alert alert-danger" role="alert"
+                    th:if="${!#strings.isEmpty(errorMessge)}" th:text="${errorMessge}"/>
                 <div class="card-text">
                     <form id="form" name="myForm" th:action="@{/Login}" action="/Login" method="post">
                         <div class="form-group">
 <!--                            <li class="alert alert-danger" role="alert" th:if="${!#strings.isEmpty(errorMessage)}"-->
 <!--                                th:text="${errorMessage}" />-->
-                            <li style="" class="alert alert-danger" role="alert"
-                                th:if="${!#strings.isEmpty(errorMessge)}" th:text="${errorMessge}"/>
+
                             <label for="exampleInputEmail1"> Enter StudentID </label>
                             <input type="text" name="username"  class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" required>
                         </div>
