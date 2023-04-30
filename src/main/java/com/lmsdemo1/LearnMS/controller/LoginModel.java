@@ -21,13 +21,13 @@ public class LoginModel {
 //        return "LoginModule/regestrationT.html";
 //    }
 
-    @RequestMapping(value={
-            "/LoginT"
-    })
-    public String LoginTPage(){
-
-        return "LoginModule/Tlogin.html";
-    }
+//    @RequestMapping(value={
+//            "/LoginT"
+//    })
+//    public String LoginTPage(){
+//
+//        return "LoginModule/Tlogin.html";
+//    }
     @RequestMapping(value={
             "/MailSentS"
     })
@@ -67,13 +67,13 @@ public class LoginModel {
         return "Dashboards/LMS Student dashboard/basic_elements.html";
     }
 
-    @RequestMapping(value={
-            "/TeacherD"
-    })
-    public String TeacherDashboard(){
-
-        return "Dashboards/LMS Teacher Dashboard/index.html";
-    }
+//    @RequestMapping(value={
+//            "/TeacherD"
+//    })
+//    public String TeacherDashboard(){
+//
+//        return "Dashboards/LMS Teacher Dashboard/index.html";
+//    }
 
     @RequestMapping(value={
             "/UpdateTeacher"

@@ -25,12 +25,5 @@ public class StDashboardController {
         //throw new RuntimeException("It's been a bad day!!");
         return "/Dashboards/LMS Student dashboard/index.html";
     }
-//    @RequestMapping("/TeacherD")
-//    public String displayTDashboard(Model model,Authentication authentication) {
-//        model.addAttribute("username", authentication.getName());
-//        model.addAttribute("roles", authentication.getAuthorities().toString());
-//        //throw new RuntimeException("It's been a bad day!!");
-//        return "Dashboards/LMS Teacher Dashboard/index.html";
-//    }
 
 }
