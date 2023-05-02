@@ -1,6 +1,7 @@
 package com.lmsdemo1.LearnMS.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -18,6 +19,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class StLoginController {
 
     @RequestMapping(value ="/Login",method = { RequestMethod.GET, RequestMethod.POST })
+//    @PreAuthorize("hasAuthority('ROLE_STUDENT')")
     public String displayLoginPage(@RequestParam(value = "error", required = false) String error,
                                    @RequestParam(value = "logout", required = false) String logout,Model model) {
         String errorMessge = null;
@@ -32,6 +34,7 @@ public class StLoginController {
     }
 
     @RequestMapping(value="/Logout", method = RequestMethod.GET)
+//    @PreAuthorize("hasAuthority('ROLE_STUDENT')")
     public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth != null){

@@ -3,6 +3,7 @@ package com.lmsdemo1.LearnMS.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
@@ -12,6 +13,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
+@EnableMethodSecurity
 public class ProjectSecurityConfig {
 
     @Bean
@@ -22,7 +24,7 @@ public class ProjectSecurityConfig {
 
                 .requestMatchers("/StudentDashboard/**").permitAll()
                 .requestMatchers("/TeacherDashboard/**").permitAll()
-                .requestMatchers("/Registration").denyAll()
+                .requestMatchers("/Registration").permitAll()
                 .requestMatchers("/style.css").permitAll()
                 .requestMatchers("/Login").permitAll()
                 .requestMatchers("/LoginT").permitAll()
@@ -32,14 +34,23 @@ public class ProjectSecurityConfig {
                 .requestMatchers("/Logout").permitAll()
                 .requestMatchers("/saveMsg").permitAll()
 
-                .and().formLogin().loginPage("/Login")
-                .defaultSuccessUrl("/StudentD").failureUrl("/Login?error=true").permitAll()
+                .and()
+
+                .formLogin().loginPage("/Login")
+                .defaultSuccessUrl("/StudentD")
+                .failureUrl("/Login?error=true").permitAll()
                 .and().logout().logoutSuccessUrl("/Login?logout=true").invalidateHttpSession(true).permitAll()
-                .and().httpBasic();
+
 
 //                .and().formLogin().loginPage("/LoginT")
-//                .defaultSuccessUrl("/TeacherD").failureUrl("/LoginT?error=true").permitAll()
+//                .defaultSuccessUrl("/TeacherD")
+//               .failureUrl("/LoginT?error=true").permitAll()
 //                .and().logout().logoutSuccessUrl("/LoginT?logout=true").invalidateHttpSession(true).permitAll()
+
+
+                .and().httpBasic();
+
+
 
 
 
