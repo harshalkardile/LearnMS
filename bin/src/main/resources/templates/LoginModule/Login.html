@@ -10,38 +10,38 @@
     <script type = "text/javascript">
    function myFunction() {
 
-      if (document.myForm.ps.type == "password") {
-         document.myForm.ps.type = "text";
+      if (document.myForm.password.type == "password") {
+         document.myForm.password.type = "text";
       } else {
-         document.myForm.ps.type = "password";
+         document.myForm.password.type = "password";
       }
    }
    function validate() {
-      if(document.myForm.ps.value == "") {
+      if(document.myForm.password.value == "") {
         alert( "Please provide your password" );
         return false;
       }
-      if(document.myForm.ps.value.length <= 8) {
+      if(document.myForm.password.value.length <= 8) {
         alert( "Password length must be greater than 8" );
         return false;
       }
-      if(document.myForm.ps.value.length >= 18) {
+      if(document.myForm.password.value.length >= 18) {
         alert( "Password length can't be greater than 18" );
         return false;
       }
-      if(document.myForm.ps.value.search(/[0-9]/) == -1) {
+      if(document.myForm.password.value.search(/[0-9]/) == -1) {
         alert( "Password must include Numbers" );
         return false;
       }
-      if(document.myForm.ps.value.search(/[a-z]/) == -1) {
+      if(document.myForm.password.value.search(/[a-z]/) == -1) {
         alert( "Please enter atleast lowercase value" );
         return false;
       }
-      if(document.myForm.ps.value.search(/[A-Z]/) == -1) {
+      if(document.myForm.password.value.search(/[A-Z]/) == -1) {
         alert( "Please enter atleast uppercase value" );
         return false;
       }
-      if(document.myForm.ps.value.search(/[!\@\#\$\%\^\&]/) == -1) {
+      if(document.myForm.password.value.search(/[!\@\#\$\%\^\&]/) == -1) {
         alert( "Please enter special character between!-@-#-$-%-^-&" );
         return false;
       }
@@ -75,7 +75,8 @@ body{
    background: linear-gradient(135deg, #262931, #EEE9E9);
 }
 form {
-   padding-top: 30px;
+   padding-top: 10px;
+   padding-bottom: 0px
    font-size: 14px;
 }
 .form-group{
@@ -83,7 +84,9 @@ form {
    padding-bottom: 10px;
 }
 .card-title {
-font-weight: 350;
+    font-weight: 380;
+    padding-top: 10px;
+    padding-bottom:10px;
  }
 .btn {
    width: 100%;
@@ -92,7 +95,7 @@ font-weight: 350;
    margin-bottom: 10px;
 }
 .login-form {
-   width: 350px;
+   width: 380px;
    margin: 100px;
    border-radius: 10px;
 
@@ -102,10 +105,11 @@ font-weight: 350;
    padding: 10px 0 0;
 }
 .alert {
-   margin-bottom: -30px;
+   margin-bottom: 8px;
    font-size: 13px;
-   margin-top: 100px;
+   margin-top:10px;
 }
+
 </style>
 <body>
 <div class="abc">
@@ -113,16 +117,21 @@ font-weight: 350;
         <div class="card login-form">
             <div class="card-body">
                 <h3 class="card-title text-center"> Student Login</h3>
+                <li style="" class="alert alert-danger" role="alert"
+                    th:if="${!#strings.isEmpty(errorMessge)}" th:text="${errorMessge}"/>
                 <div class="card-text">
-                    <form id="form" name="myForm" action="" method="GET">
+                    <form id="form" name="myForm" th:action="@{/Login}" action="/Login" method="post">
                         <div class="form-group">
+<!--                            <li class="alert alert-danger" role="alert" th:if="${!#strings.isEmpty(errorMessage)}"-->
+<!--                                th:text="${errorMessage}" />-->
+
                             <label for="exampleInputEmail1"> Enter StudentID </label>
-                            <input type="text" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                            <input type="text" name="username"  class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" required>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Enter Password </label>
 
-                            <input type="password" name="ps" class="form-control form-control-sm" id="exampleInputPassword1" required minlength="8">
+                            <input type="password" name="password" class="form-control form-control-sm" id="exampleInputPassword1" required minlength="8">
 
                         </div>
                         <p style="float:inherit;font-size:10px;padding: 10px 0 0px;">&nbsp;<input type="checkbox" onclick="myFunction()">Show Password<br><br>&nbsp;&#x2022; Must have a minimum of 8 characters<br>&nbsp;&#x2022; Must include at least 1 <br>&nbsp;&nbsp;&nbsp;(Numeric,Uppercase,Lowercase & Special Character)<br>&nbsp;&#x2022; Special characters [!~@~#~$~%~^~&]</p></center>

@@ -12,19 +12,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+
 
 @Slf4j
 @Controller
 public class StDashboardController {
 
     @RequestMapping("/StudentD")
-//    @PreAuthorize("hasAuthority('ROLE_STUDENT')")
+    @PreAuthorize("hasAuthority('ROLE_STUDENT')")
     public String displayDashboard(Model model,Authentication authentication) {
         model.addAttribute("username", authentication.getName());
         model.addAttribute("roles", authentication.getAuthorities().toString());
-        //throw new RuntimeException("It's been a bad day!!");
+//        throw new RuntimeException("It's been a bad day!!");
         return "/Dashboards/LMS Student dashboard/index.html";
     }
 

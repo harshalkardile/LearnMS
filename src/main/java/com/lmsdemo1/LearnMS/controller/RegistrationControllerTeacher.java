@@ -2,6 +2,7 @@ package com.lmsdemo1.LearnMS.controller;
 
 import com.lmsdemo1.LearnMS.model.RegisterTe;
 import com.lmsdemo1.LearnMS.service.RegTeService;
+
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+
 
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 @Slf4j

@@ -50,6 +50,13 @@ public class LoginModel {
 
         return "LoginModule/forgotpswd2.html";
     }
+    @RequestMapping(value={
+            "/Fileserror"
+    })
+    public String Fileserror(){
+
+        return "LoginModule/errorpage.html";
+    }
 
 //    @RequestMapping(value={
 //            "/StudentD"

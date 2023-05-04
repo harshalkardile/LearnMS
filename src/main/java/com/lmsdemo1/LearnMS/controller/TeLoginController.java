@@ -1,5 +1,7 @@
 package com.lmsdemo1.LearnMS.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -11,15 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+
+
 
 @Slf4j
 @Controller
 public class TeLoginController {
 
     @RequestMapping(value ="/LoginT",method = { RequestMethod.GET, RequestMethod.POST })
-//    @PreAuthorize("hasAuthority('ROLE_STUDENT')")
     public String displayLoginPage(@RequestParam(value = "error", required = false) String error,
                                    @RequestParam(value = "logout", required = false) String logout,Model model) {
         String errorMessge = null;
@@ -34,12 +35,12 @@ public class TeLoginController {
     }
 
     @RequestMapping(value="/LogoutT", method = RequestMethod.GET)
-//    @PreAuthorize("hasAuthority('ROLE_STUDENT')")
+    @PreAuthorize("hasAuthority('ROLE_STUDENT')")
     public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (auth != null){
+        if (auth != null)
             new SecurityContextLogoutHandler().logout(request, response, auth);
-        }
+
         return "redirect:/LoginT?logout=true";
     }
 
